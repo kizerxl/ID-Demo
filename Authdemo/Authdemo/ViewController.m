@@ -38,7 +38,7 @@
                                     } else {
                                         dispatch_async(dispatch_get_main_queue(), ^{
                                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                                message:error.description
+                                                                                                message: @"Yup, just cancel and walk away"
                                                                                                delegate:self
                                                                                       cancelButtonTitle:@"OK"
                                                                                       otherButtonTitles:nil, nil];
@@ -49,7 +49,7 @@
                                 }];
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Give up, this phone is not for you :P"
                                                                     message:authError.description
                                                                    delegate:self
                                                           cancelButtonTitle:@"OK"
