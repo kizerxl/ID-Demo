@@ -212,6 +212,7 @@
 				TargetAttributes = {
 					EBEE93CD1C84A6D20034CD21 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = B9NU7FF5WD;
 					};
 					EBEE93E61C84A6D20034CD21 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -417,10 +418,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Authdemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flatironschool.Authdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -428,10 +432,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Authdemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flatironschool.Authdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -502,6 +509,7 @@
 				EBEE93FD1C84A6D20034CD21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EBEE93FE1C84A6D20034CD21 /* Build configuration list for PBXNativeTarget "AuthdemoTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +518,7 @@
 				EBEE94001C84A6D20034CD21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EBEE94011C84A6D20034CD21 /* Build configuration list for PBXNativeTarget "AuthdemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +527,7 @@
 				EBEE94031C84A6D20034CD21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
