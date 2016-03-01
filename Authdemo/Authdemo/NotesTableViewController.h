@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  NotesTableViewController.h
 //  Authdemo
 //
 //  Created by Felix Changoo on 2/29/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface NotesTableViewController : UITableViewController
 
 @end
-

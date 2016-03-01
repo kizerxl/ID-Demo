@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB69D2C61C8516CC00472A51 /* NotesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB69D2C51C8516CC00472A51 /* NotesTableViewController.m */; };
+		EB69D2C91C851BA900472A51 /* SecretNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB69D2C81C851BA900472A51 /* SecretNoteViewController.m */; };
 		EBEE93D31C84A6D20034CD21 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEE93D21C84A6D20034CD21 /* main.m */; };
 		EBEE93D61C84A6D20034CD21 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEE93D51C84A6D20034CD21 /* AppDelegate.m */; };
-		EBEE93D91C84A6D20034CD21 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEE93D81C84A6D20034CD21 /* ViewController.m */; };
 		EBEE93DC1C84A6D20034CD21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBEE93DA1C84A6D20034CD21 /* Main.storyboard */; };
 		EBEE93DE1C84A6D20034CD21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBEE93DD1C84A6D20034CD21 /* Assets.xcassets */; };
 		EBEE93E11C84A6D20034CD21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBEE93DF1C84A6D20034CD21 /* LaunchScreen.storyboard */; };
 		EBEE93EC1C84A6D20034CD21 /* AuthdemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEE93EB1C84A6D20034CD21 /* AuthdemoTests.m */; };
 		EBEE93F71C84A6D20034CD21 /* AuthdemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEE93F61C84A6D20034CD21 /* AuthdemoUITests.m */; };
-		EBEE94061C84A7690034CD21 /* GotInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEE94051C84A7690034CD21 /* GotInViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,12 +36,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB69D2C41C8516CC00472A51 /* NotesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesTableViewController.h; sourceTree = "<group>"; };
+		EB69D2C51C8516CC00472A51 /* NotesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesTableViewController.m; sourceTree = "<group>"; };
+		EB69D2C71C851BA900472A51 /* SecretNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretNoteViewController.h; sourceTree = "<group>"; };
+		EB69D2C81C851BA900472A51 /* SecretNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecretNoteViewController.m; sourceTree = "<group>"; };
 		EBEE93CE1C84A6D20034CD21 /* Authdemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Authdemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBEE93D21C84A6D20034CD21 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EBEE93D41C84A6D20034CD21 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EBEE93D51C84A6D20034CD21 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EBEE93D71C84A6D20034CD21 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EBEE93D81C84A6D20034CD21 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EBEE93DB1C84A6D20034CD21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBEE93DD1C84A6D20034CD21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBEE93E01C84A6D20034CD21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,8 +54,6 @@
 		EBEE93F21C84A6D20034CD21 /* AuthdemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthdemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBEE93F61C84A6D20034CD21 /* AuthdemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthdemoUITests.m; sourceTree = "<group>"; };
 		EBEE93F81C84A6D20034CD21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EBEE94041C84A7690034CD21 /* GotInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GotInViewController.h; sourceTree = "<group>"; };
-		EBEE94051C84A7690034CD21 /* GotInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GotInViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,11 +106,11 @@
 			children = (
 				EBEE93D41C84A6D20034CD21 /* AppDelegate.h */,
 				EBEE93D51C84A6D20034CD21 /* AppDelegate.m */,
-				EBEE93D71C84A6D20034CD21 /* ViewController.h */,
-				EBEE93D81C84A6D20034CD21 /* ViewController.m */,
+				EB69D2C41C8516CC00472A51 /* NotesTableViewController.h */,
+				EB69D2C51C8516CC00472A51 /* NotesTableViewController.m */,
+				EB69D2C71C851BA900472A51 /* SecretNoteViewController.h */,
+				EB69D2C81C851BA900472A51 /* SecretNoteViewController.m */,
 				EBEE93DA1C84A6D20034CD21 /* Main.storyboard */,
-				EBEE94041C84A7690034CD21 /* GotInViewController.h */,
-				EBEE94051C84A7690034CD21 /* GotInViewController.m */,
 				EBEE93DD1C84A6D20034CD21 /* Assets.xcassets */,
 				EBEE93DF1C84A6D20034CD21 /* LaunchScreen.storyboard */,
 				EBEE93E21C84A6D20034CD21 /* Info.plist */,
@@ -275,9 +275,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBEE94061C84A7690034CD21 /* GotInViewController.m in Sources */,
-				EBEE93D91C84A6D20034CD21 /* ViewController.m in Sources */,
+				EB69D2C61C8516CC00472A51 /* NotesTableViewController.m in Sources */,
 				EBEE93D61C84A6D20034CD21 /* AppDelegate.m in Sources */,
+				EB69D2C91C851BA900472A51 /* SecretNoteViewController.m in Sources */,
 				EBEE93D31C84A6D20034CD21 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,6 +502,7 @@
 				EBEE93FD1C84A6D20034CD21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EBEE93FE1C84A6D20034CD21 /* Build configuration list for PBXNativeTarget "AuthdemoTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +511,7 @@
 				EBEE94001C84A6D20034CD21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EBEE94011C84A6D20034CD21 /* Build configuration list for PBXNativeTarget "AuthdemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +520,7 @@
 				EBEE94031C84A6D20034CD21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
