@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Authdemo.xcodeproj">
+      location = "self:/Users/irinakalashnikova/Development/ID-Demo/Authdemo/Autodemo.xcodeproj">
    </FileRef>
 </Workspace>

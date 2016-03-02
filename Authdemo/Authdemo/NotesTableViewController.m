@@ -12,14 +12,12 @@
 
 
 @interface NotesTableViewController ()
-
 @end
 
 @implementation NotesTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
 }
 
 -(void)checkForFingerPrint{
@@ -39,20 +37,12 @@
                                     });
                                 } else {
                                     dispatch_async(dispatch_get_main_queue(), ^{
-//                                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-//                                                                                            message: @"Yup, just cancel and walk away"
-//                                                                                           delegate:self
-//                                                                                  cancelButtonTitle:@"OK"
-//                                                                                  otherButtonTitles:nil, nil];
-//                                        [alertView show];
-                                        // Rather than show a UIAlert here, use the error to determine if you should push to a keypad for PIN entry.
                                         
-                                        
-                                        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Wrong pass motherfucker"
-                                                                                                       message:@"U fucked up...."
+                                        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Naughty, Naughty!"
+                                                                                                       message:@"Your picture will be taken and it will sent to the owner of the phone."
                                                                                                 preferredStyle:UIAlertControllerStyleAlert];
                                         
-                                        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Good bye!" style:UIAlertActionStyleDefault
                                                                                               handler:^(UIAlertAction * action) {}];
                                         
                                         [alert addAction:defaultAction];
@@ -60,28 +50,22 @@
                                     });
                                 }
                             }];
-    } else {
+    }
+    
+    
+    
+    else {
         dispatch_async(dispatch_get_main_queue(), ^{
-//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle: @"Give up, this phone is not for you :P"
-//                                                                message: authError.description
-//                                                               delegate:self
-//                                                      cancelButtonTitle:@"OK"
-//                                                      otherButtonTitles:nil, nil];
-//            [alertView show];
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Wrong pass motherfucker"
-                                                                           message:@"U fucked up...."
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Wrong pass mother******"
+                                                                           message:@"U f****d up...."
                                                                     preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                                   handler:^(UIAlertAction * action) {}];
             
-            [alert addAction:defaultAction];
+           [alert addAction:defaultAction];
             [self presentViewController:alert animated:YES completion:nil];
-            
-            
-            //this part exits the app completely. Feel free to uncomment it out
-            //exit(0);
-        });
+       });
     }
 
 
