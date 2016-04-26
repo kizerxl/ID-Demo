@@ -55,7 +55,7 @@
             BlueprintIdentifier = "EBEE93CD1C84A6D20034CD21"
             BuildableName = "Authdemo.app"
             BlueprintName = "Authdemo"
-            ReferencedContainer = "container:Authdemo.xcodeproj">
+            ReferencedContainer = "container:Autodemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "EBEE93CD1C84A6D20034CD21"
             BuildableName = "Authdemo.app"
             BlueprintName = "Authdemo"
-            ReferencedContainer = "container:Authdemo.xcodeproj">
+            ReferencedContainer = "container:Autodemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

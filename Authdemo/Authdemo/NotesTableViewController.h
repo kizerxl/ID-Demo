@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NoteTableViewCell.h"
 
 @interface NotesTableViewController : UITableViewController
+
+@property (strong, nonatomic)NSMutableArray *notesArray; 
 
 @end

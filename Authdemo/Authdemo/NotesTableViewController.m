@@ -18,6 +18,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UINib *cellNib = [UINib nibWithNibName:@"noteCell" bundle:nil];
+    [self.tableView registerNib:cellNib forCellReuseIdentifier:@"noteCell"];
+    [self createTestData];
+    
 }
 
 -(void)checkForFingerPrint{
@@ -73,15 +78,70 @@
 
 }
 
+//purpose of this method is to run test data to populate table till core data implementation
+-(void)createTestData{
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.section == 0 && indexPath.row == 2) {
-        
-        [self checkForFingerPrint];
-    }
+    self.notesArray = [@[@"note1", @"I'm a happy boy", @"little girl swag", @"got that swag juice girl"]mutableCopy];
 
 
 }
+
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
+    return self.notesArray.count;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+
+    return 1;
+
+}
+//
+//
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+////    if (indexPath.section == 0 && indexPath.row == 2) {
+////        
+////        [self checkForFingerPrint];
+////    }
+//
+//
+//}
+//
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    NSString *currentNote = self.notesArray[indexPath.row];
+
+     NoteTableViewCell *cell = (NoteTableViewCell *)[tableView dequeueReusableCellWithIdentifier: @"noteCell" forIndexPath:indexPath];
+    
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"noteCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
+    cell.cellDesc.text = currentNote;
+    cell.lockImage.image = [UIImage imageNamed: @"lock-2"]; 
+    
+    return cell;
+
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 50.0;
+
+
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    
+
+
+}
+
+
 
 @end
