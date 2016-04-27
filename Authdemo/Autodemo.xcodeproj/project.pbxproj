@@ -11,6 +11,13 @@
 		EB69D2C91C851BA900472A51 /* SecretNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB69D2C81C851BA900472A51 /* SecretNoteViewController.m */; };
 		EB88B93C1CCE6F3E0066A10A /* noteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB88B93B1CCE6F3E0066A10A /* noteCell.xib */; };
 		EB88B93F1CCE72000066A10A /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB88B93E1CCE72000066A10A /* NoteTableViewCell.m */; };
+		EBE89DA51CD148A7008D3CC3 /* NoteModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBE89DA31CD148A7008D3CC3 /* NoteModel.xcdatamodeld */; };
+		EBE89DAE1CD14CD0008D3CC3 /* NoteDisplay+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE89DA71CD14CD0008D3CC3 /* NoteDisplay+CoreDataProperties.m */; };
+		EBE89DAF1CD14CD0008D3CC3 /* NoteDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE89DA91CD14CD0008D3CC3 /* NoteDisplay.m */; };
+		EBE89DB01CD14CD0008D3CC3 /* Note+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE89DAB1CD14CD0008D3CC3 /* Note+CoreDataProperties.m */; };
+		EBE89DB11CD14CD0008D3CC3 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE89DAD1CD14CD0008D3CC3 /* Note.m */; };
+		EBE89DB41CD15099008D3CC3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE89DB31CD15099008D3CC3 /* CoreData.framework */; };
+		EBE89DB71CD1511E008D3CC3 /* NotesDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE89DB61CD1511E008D3CC3 /* NotesDataStore.m */; };
 		EBEE93D31C84A6D20034CD21 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEE93D21C84A6D20034CD21 /* main.m */; };
 		EBEE93D61C84A6D20034CD21 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEE93D51C84A6D20034CD21 /* AppDelegate.m */; };
 		EBEE93DC1C84A6D20034CD21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBEE93DA1C84A6D20034CD21 /* Main.storyboard */; };
@@ -45,6 +52,18 @@
 		EB88B93B1CCE6F3E0066A10A /* noteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = noteCell.xib; sourceTree = "<group>"; };
 		EB88B93D1CCE72000066A10A /* NoteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteTableViewCell.h; sourceTree = "<group>"; };
 		EB88B93E1CCE72000066A10A /* NoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteTableViewCell.m; sourceTree = "<group>"; };
+		EBE89DA41CD148A7008D3CC3 /* NoteModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NoteModel.xcdatamodel; sourceTree = "<group>"; };
+		EBE89DA61CD14CD0008D3CC3 /* NoteDisplay+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NoteDisplay+CoreDataProperties.h"; path = "../NoteDisplay+CoreDataProperties.h"; sourceTree = "<group>"; };
+		EBE89DA71CD14CD0008D3CC3 /* NoteDisplay+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NoteDisplay+CoreDataProperties.m"; path = "../NoteDisplay+CoreDataProperties.m"; sourceTree = "<group>"; };
+		EBE89DA81CD14CD0008D3CC3 /* NoteDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteDisplay.h; path = ../NoteDisplay.h; sourceTree = "<group>"; };
+		EBE89DA91CD14CD0008D3CC3 /* NoteDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteDisplay.m; path = ../NoteDisplay.m; sourceTree = "<group>"; };
+		EBE89DAA1CD14CD0008D3CC3 /* Note+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Note+CoreDataProperties.h"; path = "../Note+CoreDataProperties.h"; sourceTree = "<group>"; };
+		EBE89DAB1CD14CD0008D3CC3 /* Note+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Note+CoreDataProperties.m"; path = "../Note+CoreDataProperties.m"; sourceTree = "<group>"; };
+		EBE89DAC1CD14CD0008D3CC3 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Note.h; path = ../Note.h; sourceTree = "<group>"; };
+		EBE89DAD1CD14CD0008D3CC3 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Note.m; path = ../Note.m; sourceTree = "<group>"; };
+		EBE89DB31CD15099008D3CC3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		EBE89DB51CD1511E008D3CC3 /* NotesDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotesDataStore.h; path = ../NotesDataStore.h; sourceTree = "<group>"; };
+		EBE89DB61CD1511E008D3CC3 /* NotesDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotesDataStore.m; path = ../NotesDataStore.m; sourceTree = "<group>"; };
 		EBEE93CE1C84A6D20034CD21 /* Authdemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Authdemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBEE93D21C84A6D20034CD21 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EBEE93D41C84A6D20034CD21 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBE89DB41CD15099008D3CC3 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,9 +106,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EBE89DB21CD14CE1008D3CC3 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				EBE89DA61CD14CD0008D3CC3 /* NoteDisplay+CoreDataProperties.h */,
+				EBE89DA71CD14CD0008D3CC3 /* NoteDisplay+CoreDataProperties.m */,
+				EBE89DA81CD14CD0008D3CC3 /* NoteDisplay.h */,
+				EBE89DA91CD14CD0008D3CC3 /* NoteDisplay.m */,
+				EBE89DAA1CD14CD0008D3CC3 /* Note+CoreDataProperties.h */,
+				EBE89DAB1CD14CD0008D3CC3 /* Note+CoreDataProperties.m */,
+				EBE89DAC1CD14CD0008D3CC3 /* Note.h */,
+				EBE89DAD1CD14CD0008D3CC3 /* Note.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
 		EBEE93C51C84A6D20034CD21 = {
 			isa = PBXGroup;
 			children = (
+				EBE89DB31CD15099008D3CC3 /* CoreData.framework */,
 				EBEE93D01C84A6D20034CD21 /* Authdemo */,
 				EBEE93EA1C84A6D20034CD21 /* AuthdemoTests */,
 				EBEE93F51C84A6D20034CD21 /* AuthdemoUITests */,
@@ -109,8 +145,12 @@
 		EBEE93D01C84A6D20034CD21 /* Authdemo */ = {
 			isa = PBXGroup;
 			children = (
+				EBE89DB21CD14CE1008D3CC3 /* Core Data */,
 				EBEE93D41C84A6D20034CD21 /* AppDelegate.h */,
 				EBEE93D51C84A6D20034CD21 /* AppDelegate.m */,
+				EBE89DA31CD148A7008D3CC3 /* NoteModel.xcdatamodeld */,
+				EBE89DB51CD1511E008D3CC3 /* NotesDataStore.h */,
+				EBE89DB61CD1511E008D3CC3 /* NotesDataStore.m */,
 				EB69D2C41C8516CC00472A51 /* NotesTableViewController.h */,
 				EB69D2C51C8516CC00472A51 /* NotesTableViewController.m */,
 				EB69D2C71C851BA900472A51 /* SecretNoteViewController.h */,
@@ -288,8 +328,14 @@
 				EB69D2C61C8516CC00472A51 /* NotesTableViewController.m in Sources */,
 				EBEE93D61C84A6D20034CD21 /* AppDelegate.m in Sources */,
 				EB69D2C91C851BA900472A51 /* SecretNoteViewController.m in Sources */,
+				EBE89DAE1CD14CD0008D3CC3 /* NoteDisplay+CoreDataProperties.m in Sources */,
+				EBE89DB71CD1511E008D3CC3 /* NotesDataStore.m in Sources */,
+				EBE89DAF1CD14CD0008D3CC3 /* NoteDisplay.m in Sources */,
+				EBE89DB11CD14CD0008D3CC3 /* Note.m in Sources */,
 				EBEE93D31C84A6D20034CD21 /* main.m in Sources */,
 				EB88B93F1CCE72000066A10A /* NoteTableViewCell.m in Sources */,
+				EBE89DA51CD148A7008D3CC3 /* NoteModel.xcdatamodeld in Sources */,
+				EBE89DB01CD14CD0008D3CC3 /* Note+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +588,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EBE89DA31CD148A7008D3CC3 /* NoteModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EBE89DA41CD148A7008D3CC3 /* NoteModel.xcdatamodel */,
+			);
+			currentVersion = EBE89DA41CD148A7008D3CC3 /* NoteModel.xcdatamodel */;
+			path = NoteModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EBEE93C61C84A6D20034CD21 /* Project object */;
 }
