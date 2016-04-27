@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "NoteTableViewCell.h"
+#import "NotesDataStore.h"
 
 @interface NotesTableViewController : UITableViewController
 
-@property (strong, nonatomic)NSMutableArray *notesArray; 
+@property (strong, nonatomic)NSArray *notesArray;
+@property (strong, nonatomic)NotesDataStore *store; 
 
 @end

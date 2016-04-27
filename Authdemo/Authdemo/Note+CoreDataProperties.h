@@ -1,5 +1,5 @@
 //
-//  NoteDisplay+CoreDataProperties.h
+//  Note+CoreDataProperties.h
 //  Autodemo
 //
 //  Created by Felix Changoo on 4/27/16.
@@ -9,17 +9,14 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "NoteDisplay.h"
 #import "Note.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NoteDisplay (CoreDataProperties)
+@interface Note (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSNumber *isLocked;
-@property (nullable, nonatomic, retain) NSDate *dateCreated;
-@property (nullable, nonatomic, retain) NSString *title;
-@property (nullable, nonatomic, retain) Note *actualNote;
+@property (nullable, nonatomic, retain) NSString *content;
+@property (nullable, nonatomic, retain) NoteDisplay *notedisplay;
 
 @end
 

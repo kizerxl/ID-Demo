@@ -19,10 +19,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.store = [NotesDataStore sharedNotesDataStore];
+
+    [self.store fetchData];
+    
+    self.notesArray = self.store.notes;
+    
+    [self.tableView reloadData]; 
+    
     UINib *cellNib = [UINib nibWithNibName:@"noteCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"noteCell"];
-    [self createTestData];
     
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+
+    [super viewDidAppear: YES];
+    
+    [self.tableView reloadData];
+
 }
 
 -(void)checkForFingerPrint{
@@ -78,15 +94,6 @@
 
 }
 
-//purpose of this method is to run test data to populate table till core data implementation
--(void)createTestData{
-
-    self.notesArray = [@[@"note1", @"I'm a happy boy", @"little girl swag", @"got that swag juice girl"]mutableCopy];
-
-
-}
-
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
     return self.notesArray.count;
@@ -111,7 +118,7 @@
 //
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    NSString *currentNote = self.notesArray[indexPath.row];
+    NoteDisplay *currentNoteDisplay = self.notesArray[indexPath.row];
 
      NoteTableViewCell *cell = (NoteTableViewCell *)[tableView dequeueReusableCellWithIdentifier: @"noteCell" forIndexPath:indexPath];
     
@@ -121,7 +128,7 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.cellDesc.text = currentNote;
+    cell.cellDesc.text = currentNoteDisplay.title;
     cell.lockImage.image = [UIImage imageNamed: @"lock-2"]; 
     
     return cell;

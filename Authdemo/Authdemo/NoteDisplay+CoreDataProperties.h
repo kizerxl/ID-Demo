@@ -10,7 +10,6 @@
 //
 
 #import "NoteDisplay.h"
-#import "Note.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
