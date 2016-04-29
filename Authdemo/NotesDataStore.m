@@ -49,7 +49,7 @@
     }
     
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"objcCMR.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"NoteModel.sqlite"];
     
     NSError *error = nil;
     

@@ -25,8 +25,6 @@
     
     self.notesArray = self.store.notes;
     
-    [self.tableView reloadData]; 
-    
     UINib *cellNib = [UINib nibWithNibName:@"noteCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"noteCell"];
     
@@ -37,6 +35,8 @@
 
     [super viewDidAppear: YES];
     
+    [self.store fetchData];
+    
     [self.tableView reloadData];
 
 }
@@ -45,7 +45,7 @@
     
     LAContext *myContext = [[LAContext alloc] init];
     NSError *authError = nil;
-    NSString *myLocalizedReasonString = @"Touch ID Test to show Touch ID working in a custom app";
+    NSString *myLocalizedReasonString = @"Super secure password provided by Touch ID";
     
     if ([myContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError]) {
         [myContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
@@ -129,7 +129,7 @@
     }
     
     cell.cellDesc.text = currentNoteDisplay.title;
-    cell.lockImage.image = [UIImage imageNamed: @"lock-2"]; 
+    cell.lockImage.image = [UIImage imageNamed: @"lockicon"];
     
     return cell;
 
@@ -137,10 +137,41 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 50.0;
+    return 65.0;
 
 
 }
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NoteTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if (!cell.lockImage.hidden) {
+        
+//        [UIView animateWithDuration: 2.5 animations:^{
+//            
+//            cell.lockImage.image = [UIImage imageNamed: @"lock-2"];
+//            cell.lockImage.transform = CGAffineTransformRotate(cell.lockImage.transform, M_PI);
+////            [self.tableView layoutIfNeeded];
+//            [
+//        }];
+        
+//
+        
+//        [self checkForFingerPrint];
+        
+        
+        [self unlockLockAnimation]; 
+    }
+    
+
+
+}
+
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
@@ -149,6 +180,31 @@
 
 }
 
+-(void)unlockLockAnimation{
 
+    UIImage *firstLockImage = [UIImage imageNamed: @"endLock"];
+    UIImage *endLockImage = [UIImage imageNamed: @"endLock"];
+
+
+    UIImageView *firstLock = [[UIImageView alloc]initWithFrame: CGRectMake(self.view.center.x + 40
+                                                                           , self.view.center.y, 100, 100)];
+    firstLock.image = firstLockImage;
+
+    
+    [UIView animateKeyframesWithDuration: .8 delay: 0.0 options: UIViewKeyframeAnimationOptionCalculationModeCubicPaced animations:^{
+    
+
+                [self.tableView addSubview: firstLock];
+
+    } completion:nil];
+    
+
+
+}
+
+-(void)goOverLockedCellAnimation:(UIImage *)image{
+
+   
+}
 
 @end

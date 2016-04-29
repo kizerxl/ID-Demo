@@ -12,4 +12,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *lockImage;
 @property (weak, nonatomic) IBOutlet UILabel *cellDesc;
 
+
 @end
