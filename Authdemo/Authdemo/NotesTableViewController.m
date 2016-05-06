@@ -25,10 +25,11 @@
     
     self.notesArray = self.store.notes;
     
+    
     UINib *cellNib = [UINib nibWithNibName:@"noteCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"noteCell"];
     
-    
+
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -45,7 +46,7 @@
     
     LAContext *myContext = [[LAContext alloc] init];
     NSError *authError = nil;
-    NSString *myLocalizedReasonString = @"Super secure password provided by Touch ID";
+    NSString *myLocalizedReasonString = @"Secure password for your Notes!!!";
     
     if ([myContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError]) {
         [myContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
@@ -77,8 +78,8 @@
     
     else {
         dispatch_async(dispatch_get_main_queue(), ^{
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Wrong pass mother******"
-                                                                           message:@"U f****d up...."
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Touch ID not supported"
+                                                                           message:@"we will put something cool in here..."
                                                                     preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
@@ -104,21 +105,11 @@
     return 1;
 
 }
-//
-//
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-////    if (indexPath.section == 0 && indexPath.row == 2) {
-////        
-////        [self checkForFingerPrint];
-////    }
-//
-//
-//}
-//
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     NoteDisplay *currentNoteDisplay = self.notesArray[indexPath.row];
+    NSString *currentNoteContentDisplay = currentNoteDisplay.actualNote.content;
 
      NoteTableViewCell *cell = (NoteTableViewCell *)[tableView dequeueReusableCellWithIdentifier: @"noteCell" forIndexPath:indexPath];
     
@@ -128,14 +119,25 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.cellDesc.text = currentNoteDisplay.title;
     cell.lockImage.image = [UIImage imageNamed: @"lockicon"];
+    cell.noteTitle.text = currentNoteDisplay.title;
+    cell.noteDate.text = [self formatDate : currentNoteDisplay.dateCreated];
+    
+    cell.cellDesc.text = currentNoteContentDisplay.length > 10 ? [[currentNoteContentDisplay substringWithRange: NSMakeRange(0, 10)] stringByAppendingString: @"..."]: currentNoteContentDisplay;
+    
+    
+//    @interface NoteTableViewCell : UITableViewCell
+//    @property (weak, nonatomic) IBOutlet UIImageView *lockImage;
+//    @property (weak, nonatomic) IBOutlet UILabel *cellDesc;
+//    @property (weak, nonatomic) IBOutlet UILabel *noteTitle;
+//    @property (weak, nonatomic) IBOutlet UILabel *noteDate;
     
     return cell;
 
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
     return 65.0;
 
@@ -149,7 +151,8 @@
     
     if (!cell.lockImage.hidden) {
         
-        [self unlockLockAnimation]; 
+        [self checkForFingerPrint];
+        
     }
     
 }
@@ -158,9 +161,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
+    [self unlockLockAnimation];
     
-
-
 }
 
 -(void)unlockLockAnimation{
@@ -200,9 +202,34 @@
     
 }
 
+-(NSString *)formatDate:(NSDate *)date{
+    
+    //    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    //
+    //    [dateFormat1 setDateFormat:@"yyyy-MM-dd"];
+    //
+    //    NSString *strToday = [dateFormat1  stringFromDate:[NSDate date]];// string with yyyy-MM-dd format
+    //
+    //    [dateFormat1 setDateFormat:@"dd/MM/yyyy"];
+    //
+    //    NSDate *todaydate = [dateFormat1 dateFromString:strToday];// date with dd/MM/yyyy format
+    
+    if(!self.dateFormater){
+    
+        self.dateFormater = [[NSDateFormatter alloc] init];
+        [self.dateFormater setDateFormat:@"yyyy-MM-dd"];
+        
+    }
+    
+    NSString *dateString = [self.dateFormater stringFromDate: date];
+    
+    return dateString;
+}
+
 
 -(void)goOverLockedCellAnimation:(UIImage *)image{
 
+    //might do an hover animation ? Is that even necessary?
     
    
 }

@@ -114,6 +114,7 @@
     Note *note1 = [NSEntityDescription insertNewObjectForEntityForName: @"Note" inManagedObjectContext: store.managedObjectContext];
     note1.content = @"This is soooo random man. I just thought I would let you know";
     
+    
     noteDisplay1.actualNote = note1;
     
     NoteDisplay *noteDisplay2 = [NSEntityDescription insertNewObjectForEntityForName: @"NoteDisplay" inManagedObjectContext: store.managedObjectContext];

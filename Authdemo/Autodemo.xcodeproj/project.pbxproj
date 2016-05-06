@@ -109,6 +109,7 @@
 		EBE89DB21CD14CE1008D3CC3 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				EBE89DA31CD148A7008D3CC3 /* NoteModel.xcdatamodeld */,
 				EBE89DBE1CD1694B008D3CC3 /* NoteDisplay+CoreDataProperties.h */,
 				EBE89DBF1CD1694B008D3CC3 /* NoteDisplay+CoreDataProperties.m */,
 				EBE89DC01CD1694B008D3CC3 /* NoteDisplay.h */,
@@ -148,7 +149,6 @@
 				EBE89DB21CD14CE1008D3CC3 /* Core Data */,
 				EBEE93D41C84A6D20034CD21 /* AppDelegate.h */,
 				EBEE93D51C84A6D20034CD21 /* AppDelegate.m */,
-				EBE89DA31CD148A7008D3CC3 /* NoteModel.xcdatamodeld */,
 				EBE89DB51CD1511E008D3CC3 /* NotesDataStore.h */,
 				EBE89DB61CD1511E008D3CC3 /* NotesDataStore.m */,
 				EB69D2C41C8516CC00472A51 /* NotesTableViewController.h */,
