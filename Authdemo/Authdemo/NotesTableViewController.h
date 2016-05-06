@@ -14,5 +14,5 @@
 
 @property (strong, nonatomic)NSArray *notesArray;
 @property (strong, nonatomic)NotesDataStore *store; 
-
+@property (strong, nonatomic)UIImageView *unlock;
 @end

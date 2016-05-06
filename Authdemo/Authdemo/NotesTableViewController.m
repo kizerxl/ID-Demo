@@ -144,31 +144,14 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NoteTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     if (!cell.lockImage.hidden) {
         
-//        [UIView animateWithDuration: 2.5 animations:^{
-//            
-//            cell.lockImage.image = [UIImage imageNamed: @"lock-2"];
-//            cell.lockImage.transform = CGAffineTransformRotate(cell.lockImage.transform, M_PI);
-////            [self.tableView layoutIfNeeded];
-//            [
-//        }];
-        
-//
-        
-//        [self checkForFingerPrint];
-        
-        
         [self unlockLockAnimation]; 
     }
     
-
-
 }
 
 
@@ -182,28 +165,45 @@
 
 -(void)unlockLockAnimation{
 
-    UIImage *firstLockImage = [UIImage imageNamed: @"endLock"];
-    UIImage *endLockImage = [UIImage imageNamed: @"endLock"];
+    UIImage *openLockImage = [UIImage imageNamed: @"openLock"];
 
-
-    UIImageView *firstLock = [[UIImageView alloc]initWithFrame: CGRectMake(self.view.center.x + 40
-                                                                           , self.view.center.y, 100, 100)];
-    firstLock.image = firstLockImage;
+    //692 * 573
+    self.unlock = [[UIImageView alloc]initWithFrame: CGRectMake(self.view.center.x - 172, self.view.center.y - 200, 345, 285)];
+    self.unlock.image = openLockImage;
+    
+    [UIView animateKeyframesWithDuration: 3.0 delay: 0.0 options:UIViewKeyframeAnimationOptionCalculationModePaced animations:^{
+        
+        [UIView addKeyframeWithRelativeStartTime: 0.0 relativeDuration: 2.0 animations:^{
+            
+            [self.view addSubview: self.unlock];
+            
+        }];
+        
+        [UIView addKeyframeWithRelativeStartTime: 2.0 relativeDuration: 0.8  animations:^{
+            
+            self.unlock.transform = CGAffineTransformScale(self.unlock.transform, 100.0, 100.0);
+        }];
+        
+        [UIView addKeyframeWithRelativeStartTime: 2.8 relativeDuration: 0.2  animations:^{
+            
+            self.unlock.alpha = 0.0;
+        }];
+        
+        
+    } completion:^(BOOL finished) {
+        
+        //clean up
+        [self.unlock removeFromSuperview];
+    }];
+    
 
     
-    [UIView animateKeyframesWithDuration: .8 delay: 0.0 options: UIViewKeyframeAnimationOptionCalculationModeCubicPaced animations:^{
-    
-
-                [self.tableView addSubview: firstLock];
-
-    } completion:nil];
-    
-
-
 }
+
 
 -(void)goOverLockedCellAnimation:(UIImage *)image{
 
+    
    
 }
 
