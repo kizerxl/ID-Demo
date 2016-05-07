@@ -125,12 +125,7 @@
     
     cell.cellDesc.text = currentNoteContentDisplay.length > 10 ? [[currentNoteContentDisplay substringWithRange: NSMakeRange(0, 10)] stringByAppendingString: @"..."]: currentNoteContentDisplay;
     
-    
-//    @interface NoteTableViewCell : UITableViewCell
-//    @property (weak, nonatomic) IBOutlet UIImageView *lockImage;
-//    @property (weak, nonatomic) IBOutlet UILabel *cellDesc;
-//    @property (weak, nonatomic) IBOutlet UILabel *noteTitle;
-//    @property (weak, nonatomic) IBOutlet UILabel *noteDate;
+    cell.lockImage.hidden = ![NSNumber numberWithBool: currentNoteDisplay.isLocked];
     
     return cell;
 
@@ -151,6 +146,7 @@
     
     if (!cell.lockImage.hidden) {
         
+//        [self unlockLockAnimation];
         [self checkForFingerPrint];
         
     }
@@ -160,8 +156,15 @@
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    SecretNoteViewController *destVC = (SecretNoteViewController *)segue.destinationViewController;
+    
+    if ([segue.identifier isEqualToString: @"secretNote"] ) {
+        
+        [self unlockLockAnimation];
+        
+    }
 
-    [self unlockLockAnimation];
     
 }
 
@@ -203,16 +206,6 @@
 }
 
 -(NSString *)formatDate:(NSDate *)date{
-    
-    //    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
-    //
-    //    [dateFormat1 setDateFormat:@"yyyy-MM-dd"];
-    //
-    //    NSString *strToday = [dateFormat1  stringFromDate:[NSDate date]];// string with yyyy-MM-dd format
-    //
-    //    [dateFormat1 setDateFormat:@"dd/MM/yyyy"];
-    //
-    //    NSDate *todaydate = [dateFormat1 dateFromString:strToday];// date with dd/MM/yyyy format
     
     if(!self.dateFormater){
     

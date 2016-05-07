@@ -16,13 +16,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.constrainAboveView = [self.optionsView.bottomAnchor constraintEqualToAnchor: self.view.topAnchor ];
+    self.constrainAboveView.active = YES;
+    
+    
 }
+//
+//
+//- (void)goBack:(id)sender {
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
+
+-(void)toggleOptions{
+
+    self.constrainAboveView.active = !self.constrainAboveView.active;
+    self.constrainOnView.active = !self.constrainAboveView.active;
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation
@@ -34,4 +54,8 @@
 }
 */
 
+- (IBAction)toggleButtonTapped:(id)sender {
+    
+    [self toggleOptions]; 
+}
 @end

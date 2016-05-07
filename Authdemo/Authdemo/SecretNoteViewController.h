@@ -10,4 +10,13 @@
 
 @interface SecretNoteViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextView *noteContent;
+
+@property (weak, nonatomic) IBOutlet UIView *optionsView;
+@property (strong, nonatomic)NSLayoutConstraint *constrainAboveView;
+@property (strong, nonatomic)NSLayoutConstraint *constrainOnView;
+- (IBAction)toggleButtonTapped:(id)sender;
+
+
+
 @end

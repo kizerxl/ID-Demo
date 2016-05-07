@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NoteTableViewCell.h"
 #import "NotesDataStore.h"
+#import "SecretNoteViewController.h"
 
 @interface NotesTableViewController : UITableViewController
 
