@@ -123,7 +123,7 @@
     cell.noteTitle.text = currentNoteDisplay.title;
     cell.noteDate.text = [self formatDate : currentNoteDisplay.dateCreated];
     
-    cell.cellDesc.text = currentNoteContentDisplay.length > 10 ? [[currentNoteContentDisplay substringWithRange: NSMakeRange(0, 10)] stringByAppendingString: @"..."]: currentNoteContentDisplay;
+//    cell.cellDesc.text = currentNoteContentDisplay.length > 10 ? [[currentNoteContentDisplay substringWithRange: NSMakeRange(0, 10)] stringByAppendingString: @"..."]: currentNoteContentDisplay;
     
     cell.lockImage.hidden = ![NSNumber numberWithBool: currentNoteDisplay.isLocked];
     

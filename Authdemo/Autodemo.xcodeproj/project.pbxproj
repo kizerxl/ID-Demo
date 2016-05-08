@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		EB69D2C61C8516CC00472A51 /* NotesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB69D2C51C8516CC00472A51 /* NotesTableViewController.m */; };
 		EB69D2C91C851BA900472A51 /* SecretNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB69D2C81C851BA900472A51 /* SecretNoteViewController.m */; };
+		EB70AFE51CDF19390082751A /* notesTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB70AFE41CDF19390082751A /* notesTableView.xib */; };
+		EB70AFEC1CDF21380082751A /* NotesDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = EB70AFEB1CDF21380082751A /* NotesDisplay.m */; };
 		EB88B93C1CCE6F3E0066A10A /* noteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB88B93B1CCE6F3E0066A10A /* noteCell.xib */; };
 		EB88B93F1CCE72000066A10A /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB88B93E1CCE72000066A10A /* NoteTableViewCell.m */; };
 		EBE89DA51CD148A7008D3CC3 /* NoteModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBE89DA31CD148A7008D3CC3 /* NoteModel.xcdatamodeld */; };
@@ -49,6 +51,9 @@
 		EB69D2C51C8516CC00472A51 /* NotesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesTableViewController.m; sourceTree = "<group>"; };
 		EB69D2C71C851BA900472A51 /* SecretNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretNoteViewController.h; sourceTree = "<group>"; };
 		EB69D2C81C851BA900472A51 /* SecretNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecretNoteViewController.m; sourceTree = "<group>"; };
+		EB70AFE41CDF19390082751A /* notesTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = notesTableView.xib; sourceTree = "<group>"; };
+		EB70AFEA1CDF21380082751A /* NotesDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesDisplay.h; sourceTree = "<group>"; };
+		EB70AFEB1CDF21380082751A /* NotesDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesDisplay.m; sourceTree = "<group>"; };
 		EB88B93B1CCE6F3E0066A10A /* noteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = noteCell.xib; sourceTree = "<group>"; };
 		EB88B93D1CCE72000066A10A /* NoteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteTableViewCell.h; sourceTree = "<group>"; };
 		EB88B93E1CCE72000066A10A /* NoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteTableViewCell.m; sourceTree = "<group>"; };
@@ -106,6 +111,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB70AFE81CDF1E6B0082751A /* Main App Files */ = {
+			isa = PBXGroup;
+			children = (
+				EBEE93D41C84A6D20034CD21 /* AppDelegate.h */,
+				EBEE93D51C84A6D20034CD21 /* AppDelegate.m */,
+				EBE89DB51CD1511E008D3CC3 /* NotesDataStore.h */,
+				EBE89DB61CD1511E008D3CC3 /* NotesDataStore.m */,
+				EB88B93B1CCE6F3E0066A10A /* noteCell.xib */,
+				EB88B93D1CCE72000066A10A /* NoteTableViewCell.h */,
+				EB88B93E1CCE72000066A10A /* NoteTableViewCell.m */,
+				EB70AFEA1CDF21380082751A /* NotesDisplay.h */,
+				EB70AFEB1CDF21380082751A /* NotesDisplay.m */,
+				EBEE93DD1C84A6D20034CD21 /* Assets.xcassets */,
+				EB70AFE41CDF19390082751A /* notesTableView.xib */,
+				EBEE93DF1C84A6D20034CD21 /* LaunchScreen.storyboard */,
+				EBEE93E21C84A6D20034CD21 /* Info.plist */,
+			);
+			name = "Main App Files";
+			sourceTree = "<group>";
+		};
+		EB70AFE91CDF1EDB0082751A /* Old App Files */ = {
+			isa = PBXGroup;
+			children = (
+				EB69D2C71C851BA900472A51 /* SecretNoteViewController.h */,
+				EB69D2C81C851BA900472A51 /* SecretNoteViewController.m */,
+				EBEE93DA1C84A6D20034CD21 /* Main.storyboard */,
+				EB69D2C41C8516CC00472A51 /* NotesTableViewController.h */,
+				EB69D2C51C8516CC00472A51 /* NotesTableViewController.m */,
+			);
+			name = "Old App Files";
+			sourceTree = "<group>";
+		};
 		EBE89DB21CD14CE1008D3CC3 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,22 +183,9 @@
 		EBEE93D01C84A6D20034CD21 /* Authdemo */ = {
 			isa = PBXGroup;
 			children = (
+				EB70AFE91CDF1EDB0082751A /* Old App Files */,
+				EB70AFE81CDF1E6B0082751A /* Main App Files */,
 				EBE89DB21CD14CE1008D3CC3 /* Core Data */,
-				EBEE93D41C84A6D20034CD21 /* AppDelegate.h */,
-				EBEE93D51C84A6D20034CD21 /* AppDelegate.m */,
-				EBE89DB51CD1511E008D3CC3 /* NotesDataStore.h */,
-				EBE89DB61CD1511E008D3CC3 /* NotesDataStore.m */,
-				EB69D2C41C8516CC00472A51 /* NotesTableViewController.h */,
-				EB69D2C51C8516CC00472A51 /* NotesTableViewController.m */,
-				EB88B93B1CCE6F3E0066A10A /* noteCell.xib */,
-				EB88B93D1CCE72000066A10A /* NoteTableViewCell.h */,
-				EB88B93E1CCE72000066A10A /* NoteTableViewCell.m */,
-				EB69D2C71C851BA900472A51 /* SecretNoteViewController.h */,
-				EB69D2C81C851BA900472A51 /* SecretNoteViewController.m */,
-				EBEE93DA1C84A6D20034CD21 /* Main.storyboard */,
-				EBEE93DD1C84A6D20034CD21 /* Assets.xcassets */,
-				EBEE93DF1C84A6D20034CD21 /* LaunchScreen.storyboard */,
-				EBEE93E21C84A6D20034CD21 /* Info.plist */,
 				EBEE93D11C84A6D20034CD21 /* Supporting Files */,
 			);
 			path = Authdemo;
@@ -260,7 +284,7 @@
 				TargetAttributes = {
 					EBEE93CD1C84A6D20034CD21 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = B9NU7FF5WD;
+						DevelopmentTeam = T6W38YLN79;
 					};
 					EBEE93E61C84A6D20034CD21 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -300,6 +324,7 @@
 				EBEE93E11C84A6D20034CD21 /* LaunchScreen.storyboard in Resources */,
 				EBEE93DE1C84A6D20034CD21 /* Assets.xcassets in Resources */,
 				EBEE93DC1C84A6D20034CD21 /* Main.storyboard in Resources */,
+				EB70AFE51CDF19390082751A /* notesTableView.xib in Resources */,
 				EB88B93C1CCE6F3E0066A10A /* noteCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB70AFEC1CDF21380082751A /* NotesDisplay.m in Sources */,
 				EB69D2C61C8516CC00472A51 /* NotesTableViewController.m in Sources */,
 				EBEE93D61C84A6D20034CD21 /* AppDelegate.m in Sources */,
 				EB69D2C91C851BA900472A51 /* SecretNoteViewController.m in Sources */,

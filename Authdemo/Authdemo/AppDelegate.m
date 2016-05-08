@@ -16,11 +16,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     
-    [[UINavigationBar appearance] setBarTintColor:[UIColor blackColor]];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UIViewController *rootViewController = [[NotesDisplay alloc] init];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController: rootViewController];
+    navigationController.navigationBar.translucent = NO;
+    
+    self.window.rootViewController = navigationController;
+    
+    [self.window makeKeyAndVisible];
     
     return YES;
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

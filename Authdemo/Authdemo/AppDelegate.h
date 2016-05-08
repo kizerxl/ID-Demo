@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NotesDisplay.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
