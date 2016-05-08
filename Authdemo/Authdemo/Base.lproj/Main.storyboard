@@ -49,7 +49,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MGK-vC-7Bs">
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MGK-vC-7Bs">
                                 <rect key="frame" x="0.0" y="64" width="414" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="dh6-mk-wG4"/>
@@ -73,6 +73,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="MGK-vC-7Bs" secondAttribute="trailing" constant="-20" id="bGe-NB-gkb"/>
                             <constraint firstItem="SOk-Rq-2ZW" firstAttribute="top" secondItem="NLb-6J-Ovi" secondAttribute="bottom" id="d6p-WX-jJj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SOk-Rq-2ZW" secondAttribute="trailing" id="jMn-Xg-prR"/>
+                            <constraint firstItem="MGK-vC-7Bs" firstAttribute="top" secondItem="SOk-Rq-2ZW" secondAttribute="top" placeholder="YES" id="m1f-Rw-Na0"/>
                             <constraint firstItem="MGK-vC-7Bs" firstAttribute="leading" secondItem="94h-KA-F8B" secondAttribute="leading" id="mHy-TQ-Y7x"/>
                         </constraints>
                     </view>
@@ -91,7 +92,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w4q-RU-vvh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TeT-QT-zhu">
+                    <navigationBar key="navigationBar" contentMode="scaleAspectFit" barStyle="black" id="TeT-QT-zhu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -108,6 +109,10 @@
         <scene sceneID="IWb-Wd-luz">
             <objects>
                 <viewController id="bpV-e2-HBG" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y06-j1-IZ4"/>
+                        <viewControllerLayoutGuide type="bottom" id="qbe-YJ-UYa"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qgF-Q1-vxv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
