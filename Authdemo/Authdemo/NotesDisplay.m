@@ -8,7 +8,7 @@
 
 #import "NotesDisplay.h"
 
-@interface NotesDisplay () <UITableViewDataSource, UITableViewDelegate>
+@interface NotesDisplay () 
 
 @property (strong, nonatomic) NSMutableSet *expandedIndexPaths;
 @property (strong, nonatomic) NSArray *notesArray;
@@ -24,6 +24,7 @@ static NSString * const cellIdentifier = @"noteCell";
     
     UINib *cellNib = [UINib nibWithNibName:NSStringFromClass([NoteTableViewCell class])
                                     bundle:nil];
+    
     [self.tableView registerNib:cellNib
          forCellReuseIdentifier: cellIdentifier];
 //    self.expandedIndexPaths = [NSMutableSet set];
@@ -38,7 +39,6 @@ static NSString * const cellIdentifier = @"noteCell";
     [self.store fetchData];
     
     self.notesArray = self.store.notes;
-    
     self.title = @"SECRET";
 }
 
@@ -66,7 +66,8 @@ static NSString * const cellIdentifier = @"noteCell";
 
     
 //    cell.cellDesc.text = currentNoteContentDisplay.length > 10 ? [[currentNoteContentDisplay substringWithRange: NSMakeRange(0, 10)] stringByAppendingString: @"..."]: currentNoteContentDisplay;
-//    
+//
+    NSLog(@"this is being called!!!!");
     
     return cell;
 }

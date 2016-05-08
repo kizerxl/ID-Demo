@@ -7,7 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotesDisplay">
             <connections>
-                <outlet property="tableView" destination="Af9-If-Fwv" id="FiC-Tx-WWf"/>
+                <outlet property="tableView" destination="Af9-If-Fwv" id="3o5-eg-BMK"/>
+                <outlet property="view" destination="cVo-Ve-l7m" id="UH7-lx-jbz"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -18,9 +19,14 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="planet" translatesAutoresizingMaskIntoConstraints="NO" id="97j-y1-ozD">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Af9-If-Fwv">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Af9-If-Fwv">
                     <rect key="frame" x="65" y="43" width="482" height="541"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.81192622184462748" green="1" blue="0.40864922208201926" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="separatorColor" red="0.1028234656" green="0.95686274510000002" blue="0.02854973488" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="baa-A2-Qhy"/>
+                        <outlet property="delegate" destination="-1" id="Y4s-sW-7Mb"/>
+                    </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -10,9 +10,11 @@
 #import "NoteTableViewCell.h"
 #import "NotesDataStore.h"
 
-@interface NotesDisplay : UIViewController
+@interface NotesDisplay : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NotesDataStore *store;
 @property (strong, nonatomic)NSDateFormatter *dateFormater;
+
 
 @end

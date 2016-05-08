@@ -17,15 +17,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    UIViewController *rootViewController = [[NotesDisplay alloc] init];
-    
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController: rootViewController];
-    navigationController.navigationBar.translucent = NO;
-    
-    self.window.rootViewController = navigationController;
-    
-    [self.window makeKeyAndVisible];
+//    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    NotesDisplay *rootViewController = [[NotesDisplay alloc] initWithNibName:@"notesTableView" bundle: nil];
+//    
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController: rootViewController];
+//    navigationController.navigationBar.translucent = NO;
+//    
+//    self.window.rootViewController = navigationController;
+//    
+//    [self.window makeKeyAndVisible];
     
     return YES;
     
