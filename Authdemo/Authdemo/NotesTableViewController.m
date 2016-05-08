@@ -29,6 +29,10 @@
     UINib *cellNib = [UINib nibWithNibName:@"noteCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"noteCell"];
     
+//    self.tableView.backgroundColor = [UIColor clearColor];
+//    self.tableView.opaque = NO;
+    
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"space"]];
 
 }
 
@@ -110,6 +114,10 @@
 
     NoteDisplay *currentNoteDisplay = self.notesArray[indexPath.row];
     NSString *currentNoteContentDisplay = currentNoteDisplay.actualNote.content;
+    
+//    UIView *backView = [[UIView alloc] initWithFrame:CGRectZero];
+//    backView.backgroundColor = [UIColor clearColor];
+    
 
      NoteTableViewCell *cell = (NoteTableViewCell *)[tableView dequeueReusableCellWithIdentifier: @"noteCell" forIndexPath:indexPath];
     
@@ -122,8 +130,10 @@
     cell.lockImage.image = [UIImage imageNamed: @"lockicon"];
     cell.noteTitle.text = currentNoteDisplay.title;
     cell.noteDate.text = [self formatDate : currentNoteDisplay.dateCreated];
+//    cell.backgroundView = backView;
+    cell.backgroundColor = [UIColor clearColor]; 
     
-    cell.cellDesc.text = currentNoteContentDisplay.length > 10 ? [[currentNoteContentDisplay substringWithRange: NSMakeRange(0, 10)] stringByAppendingString: @"..."]: currentNoteContentDisplay;
+//    cell.cellDesc.text = currentNoteContentDisplay.length > 10 ? [[currentNoteContentDisplay substringWithRange: NSMakeRange(0, 10)] stringByAppendingString: @"..."]: currentNoteContentDisplay;
     
     cell.lockImage.hidden = ![NSNumber numberWithBool: currentNoteDisplay.isLocked];
     
@@ -157,7 +167,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
-    SecretNoteViewController *destVC = (SecretNoteViewController *)segue.destinationViewController;
+//    SecretNoteViewController *destVC = (SecretNoteViewController *)segue.destinationViewController;
     
     if ([segue.identifier isEqualToString: @"secretNote"] ) {
         
