@@ -8,7 +8,7 @@
 
 #import "SecretNoteViewController.h"
 
-@interface SecretNoteViewController ()
+@interface SecretNoteViewController () <UITextViewDelegate>
 
 @end
 
@@ -17,24 +17,44 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.constrainAboveView = [self.optionsView.bottomAnchor constraintEqualToAnchor: self.view.topAnchor ];
+    self.noteContent.delegate = self; 
+    [self load];
+    
+    self.optionsView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.constrainAboveView = [self.optionsView.bottomAnchor constraintEqualToAnchor: self.view.topAnchor];
+    self.constrainOnView = [self.optionsView.topAnchor constraintEqualToAnchor: self.view.topAnchor];
+    
     self.constrainAboveView.active = YES;
+    self.constrainOnView.active = NO;
+
    
 }
-//
-//
-//- (void)goBack:(id)sender {
-//    [self.navigationController popViewControllerAnimated:YES];
-//}
 
--(void)toggleOptions{
+-(void)viewDidAppear:(BOOL)animated{
 
-    self.constrainAboveView.active = !self.constrainAboveView.active;
-    self.constrainOnView.active = !self.constrainAboveView.active;
-    
+    [super viewDidAppear: YES];
     
 }
 
+-(void)viewDidDisappear:(BOOL)animated{
+
+    [super viewDidDisappear: YES];
+    
+    NSString *titleSubstring = [self.noteContent attributedText].string.length > 0 ?[self.noteContent attributedText].string : @"Empty Note";
+    self.passedNote.title = titleSubstring.length > 10 ? [[titleSubstring substringWithRange: NSMakeRange(0, 10)] stringByAppendingString: @"..."]: titleSubstring;
+
+    [self save];
+    
+}
+
+
+//-(void)toggleOptions{
+//
+//    self.constrainAboveView.active = !self.constrainAboveView.active;
+//    self.constrainOnView.active = !self.constrainOnView.active;
+//    
+//    
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -53,8 +73,37 @@
 }
 */
 
-- (IBAction)toggleButtonTapped:(id)sender {
+-(void)save{
     
-    [self toggleOptions]; 
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject: [self.noteContent attributedText]];
+    
+    self.passedNote.actualNote.content = data;
+    self.passedNote.dateCreated = [NSDate date];
+    
+    [self.store saveContext];
+    
+    NSLog(@"note saved!!!!!!!!!!!");
+    
 }
+
+
+
+-(void)load{
+
+    NSData *content = self.passedNote.actualNote.content;
+    
+    if (content) {
+        
+        self.noteContent.attributedText = [NSKeyedUnarchiver unarchiveObjectWithData: content];
+    }
+
+
+}
+
+- (void)textViewDidChange:(UITextView *)textView{
+
+    [self save];
+
+}
+
 @end

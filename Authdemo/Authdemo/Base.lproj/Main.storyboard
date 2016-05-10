@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--SECRET-->
@@ -21,10 +20,17 @@
                             <outlet property="delegate" destination="f7d-DS-Duv" id="p0t-Un-P2X"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="SECRET" id="BP9-iU-52E"/>
+                    <navigationItem key="navigationItem" title="SECRET" id="BP9-iU-52E">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wUf-ex-wUZ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="newNoteTapped:" destination="f7d-DS-Duv" id="4kh-qL-EzB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <segue destination="e3v-2r-Ua4" kind="showDetail" identifier="secretNote" action="showViewController:sender:" id="UK6-y9-uNO"/>
+                        <segue destination="e3v-2r-Ua4" kind="show" identifier="secretNote" id="UK6-y9-uNO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvf-yM-FSA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -34,7 +40,7 @@
         <!--Secret Note View Controller-->
         <scene sceneID="RP1-kA-32C">
             <objects>
-                <viewController id="e3v-2r-Ua4" customClass="SecretNoteViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="secretNote" id="e3v-2r-Ua4" customClass="SecretNoteViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NLb-6J-Ovi"/>
                         <viewControllerLayoutGuide type="bottom" id="3ud-IU-R6i"/>
@@ -43,49 +49,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SOk-Rq-2ZW">
-                                <rect key="frame" x="0.0" y="64" width="394" height="672"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SOk-Rq-2ZW">
+                                <rect key="frame" x="0.0" y="85" width="414" height="657"/>
+                                <color key="backgroundColor" red="0.8619479166666667" green="0.8619479166666667" blue="0.8619479166666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MGK-vC-7Bs">
-                                <rect key="frame" x="0.0" y="64" width="414" height="100"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MGK-vC-7Bs">
+                                <rect key="frame" x="0.0" y="85" width="414" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.36691190567484661" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="adx-4m-ctK"/>
                                     <constraint firstAttribute="height" constant="100" id="dh6-mk-wG4"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="bpV-e2-HBG" kind="embed" id="Bmk-id-bp5"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="inp-jB-LPP">
-                                <rect key="frame" x="143" y="376" width="94" height="30"/>
-                                <state key="normal" title="Toggle "/>
-                                <connections>
-                                    <action selector="toggleButtonTapped:" destination="e3v-2r-Ua4" eventType="touchUpInside" id="NYm-Ab-ozo"/>
-                                </connections>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="3ud-IU-R6i" firstAttribute="top" secondItem="SOk-Rq-2ZW" secondAttribute="bottom" id="DyH-hL-xIF"/>
-                            <constraint firstItem="SOk-Rq-2ZW" firstAttribute="leading" secondItem="94h-KA-F8B" secondAttribute="leading" id="JOz-2I-wrE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MGK-vC-7Bs" secondAttribute="trailing" constant="-20" id="bGe-NB-gkb"/>
-                            <constraint firstItem="SOk-Rq-2ZW" firstAttribute="top" secondItem="NLb-6J-Ovi" secondAttribute="bottom" id="d6p-WX-jJj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="SOk-Rq-2ZW" secondAttribute="trailing" id="jMn-Xg-prR"/>
-                            <constraint firstItem="MGK-vC-7Bs" firstAttribute="top" secondItem="SOk-Rq-2ZW" secondAttribute="top" placeholder="YES" id="m1f-Rw-Na0"/>
-                            <constraint firstItem="MGK-vC-7Bs" firstAttribute="leading" secondItem="94h-KA-F8B" secondAttribute="leading" id="mHy-TQ-Y7x"/>
+                            <constraint firstItem="SOk-Rq-2ZW" firstAttribute="leading" secondItem="94h-KA-F8B" secondAttribute="leading" id="0zn-IU-Wev"/>
+                            <constraint firstItem="3ud-IU-R6i" firstAttribute="top" secondItem="SOk-Rq-2ZW" secondAttribute="bottom" id="QyX-iK-Lja"/>
+                            <constraint firstItem="SOk-Rq-2ZW" firstAttribute="trailing" secondItem="94h-KA-F8B" secondAttribute="trailing" id="TgR-o7-Bah"/>
+                            <constraint firstItem="SOk-Rq-2ZW" firstAttribute="top" secondItem="NLb-6J-Ovi" secondAttribute="bottom" id="Tnx-rH-jCS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="noteContent" destination="SOk-Rq-2ZW" id="iVf-aL-vDe"/>
+                        <outlet property="optionsHeightConstrain" destination="dh6-mk-wG4" id="aCM-kz-6jv"/>
                         <outlet property="optionsView" destination="MGK-vC-7Bs" id="zcU-yO-4Gi"/>
+                        <outlet property="optionsWidthConstrain" destination="adx-4m-ctK" id="SQm-iy-h9H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQJ-vu-ksg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2367" y="144"/>
+            <point key="canvasLocation" x="2434" y="254"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FQ4-Wi-0a4">
@@ -96,6 +95,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleAspectFit" barStyle="black" id="TeT-QT-zhu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

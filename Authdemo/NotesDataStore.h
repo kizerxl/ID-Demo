@@ -18,7 +18,7 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 + (instancetype) sharedNotesDataStore;
--(void)fetchData;
+- (void)fetchData; 
 
 @property (strong, nonatomic)NSArray *notes;
 

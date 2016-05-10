@@ -10,9 +10,7 @@
 
 @interface NoteTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *lockImage;
-@property (weak, nonatomic) IBOutlet UILabel *cellDesc;
 @property (weak, nonatomic) IBOutlet UILabel *noteTitle;
 @property (weak, nonatomic) IBOutlet UILabel *noteDate;
-
 
 @end

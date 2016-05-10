@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
     <entity name="Note" representedClassName="Note" syncable="YES">
-        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="Binary" syncable="YES"/>
         <relationship name="notedisplay" maxCount="1" deletionRule="Cascade" destinationEntity="NoteDisplay" inverseName="actualNote" inverseEntity="NoteDisplay" syncable="YES"/>
     </entity>
     <entity name="NoteDisplay" representedClassName="NoteDisplay" syncable="YES">
@@ -11,7 +11,7 @@
         <relationship name="actualNote" maxCount="1" deletionRule="Cascade" destinationEntity="Note" inverseName="notedisplay" inverseEntity="Note" syncable="YES"/>
     </entity>
     <elements>
-        <element name="NoteDisplay" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="Note" positionX="-54" positionY="18" width="128" height="75"/>
+        <element name="NoteDisplay" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>

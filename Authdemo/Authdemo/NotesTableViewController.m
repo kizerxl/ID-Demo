@@ -25,12 +25,8 @@
     
     self.notesArray = self.store.notes;
     
-    
     UINib *cellNib = [UINib nibWithNibName:@"noteCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"noteCell"];
-    
-//    self.tableView.backgroundColor = [UIColor clearColor];
-//    self.tableView.opaque = NO;
     
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"space"]];
 
@@ -42,6 +38,8 @@
     
     [self.store fetchData];
     
+    self.notesArray = self.store.notes; 
+    
     [self.tableView reloadData];
 
 }
@@ -50,7 +48,7 @@
     
     LAContext *myContext = [[LAContext alloc] init];
     NSError *authError = nil;
-    NSString *myLocalizedReasonString = @"Secure password for your Notes!!!";
+    NSString *myLocalizedReasonString = @"Please verfiy your identity";
     
     if ([myContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError]) {
         [myContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
@@ -64,8 +62,8 @@
                                 } else {
                                     dispatch_async(dispatch_get_main_queue(), ^{
                                         
-                                        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Naughty, Naughty!"
-                                                                                                       message:@"Your picture will be taken and it will sent to the owner of the phone."
+                                        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Tsk tsk tsk..."
+                                                                                                       message:@"It's a secret!!!"
                                                                                                 preferredStyle:UIAlertControllerStyleAlert];
                                         
                                         UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Good bye!" style:UIAlertActionStyleDefault
@@ -83,7 +81,7 @@
     else {
         dispatch_async(dispatch_get_main_queue(), ^{
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Touch ID not supported"
-                                                                           message:@"we will put something cool in here..."
+                                                                           message:@"sorry we cannot hide your secrets.."
                                                                     preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
@@ -113,13 +111,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     NoteDisplay *currentNoteDisplay = self.notesArray[indexPath.row];
-    NSString *currentNoteContentDisplay = currentNoteDisplay.actualNote.content;
-    
-//    UIView *backView = [[UIView alloc] initWithFrame:CGRectZero];
-//    backView.backgroundColor = [UIColor clearColor];
-    
-
-     NoteTableViewCell *cell = (NoteTableViewCell *)[tableView dequeueReusableCellWithIdentifier: @"noteCell" forIndexPath:indexPath];
+    NoteTableViewCell *cell = (NoteTableViewCell *)[tableView dequeueReusableCellWithIdentifier: @"noteCell" forIndexPath:indexPath];
     
     if (cell == nil)
     {
@@ -130,11 +122,7 @@
     cell.lockImage.image = [UIImage imageNamed: @"lockicon"];
     cell.noteTitle.text = currentNoteDisplay.title;
     cell.noteDate.text = [self formatDate : currentNoteDisplay.dateCreated];
-//    cell.backgroundView = backView;
-    cell.backgroundColor = [UIColor clearColor]; 
-    
-//    cell.cellDesc.text = currentNoteContentDisplay.length > 10 ? [[currentNoteContentDisplay substringWithRange: NSMakeRange(0, 10)] stringByAppendingString: @"..."]: currentNoteContentDisplay;
-    
+    cell.backgroundColor = [UIColor clearColor];
     cell.lockImage.hidden = ![NSNumber numberWithBool: currentNoteDisplay.isLocked];
     
     return cell;
@@ -146,7 +134,6 @@
     
     return 65.0;
 
-
 }
 
 
@@ -156,9 +143,12 @@
     
     if (!cell.lockImage.hidden) {
         
-//        [self unlockLockAnimation];
         [self checkForFingerPrint];
         
+    }
+    else{
+        
+         [self performSegueWithIdentifier:@"secretNote" sender: nil];
     }
     
 }
@@ -167,15 +157,26 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
-//    SecretNoteViewController *destVC = (SecretNoteViewController *)segue.destinationViewController;
+    SecretNoteViewController *destVC = (SecretNoteViewController *)segue.destinationViewController;
+    destVC.store = self.store; 
     
-    if ([segue.identifier isEqualToString: @"secretNote"] ) {
+    NSIndexPath *curentIndexPath = [self.tableView indexPathForSelectedRow];
+    
+    if (curentIndexPath){
         
-        [self unlockLockAnimation];
+        destVC.passedNote = self.notesArray[curentIndexPath.row];
         
     }
-
+    else{
     
+        //if a cell is not clicked a new note is made and is the last object in the notes Array
+        NSUInteger lastIdx = self.notesArray.count - 1;
+        destVC.passedNote = self.notesArray[lastIdx];
+    
+    }
+    
+    
+
 }
 
 -(void)unlockLockAnimation{
@@ -207,7 +208,6 @@
         
     } completion:^(BOOL finished) {
         
-        //clean up
         [self.unlock removeFromSuperview];
     }];
     
@@ -229,12 +229,30 @@
     return dateString;
 }
 
+-(NSAttributedString *)convertDataToString:(NSData *)contentData{
 
--(void)goOverLockedCellAnimation:(UIImage *)image{
+    NSAttributedString *contentString = [NSKeyedUnarchiver unarchiveObjectWithData: contentData];
 
-    //might do an hover animation ? Is that even necessary?
+    return contentString; 
+}
+
+- (IBAction)newNoteTapped:(id)sender {
     
-   
+    //let's make a new note
+    
+    NoteDisplay *newNoteDisplay = [NSEntityDescription insertNewObjectForEntityForName: @"NoteDisplay" inManagedObjectContext: self.store.managedObjectContext];
+    
+    newNoteDisplay.isLocked = [NSNumber numberWithBool: NO];
+    newNoteDisplay.dateCreated = [NSDate date];
+    newNoteDisplay.title = @"New Note";
+    Note *newNote = [NSEntityDescription insertNewObjectForEntityForName: @"Note" inManagedObjectContext: self.store.managedObjectContext];
+    
+    newNoteDisplay.actualNote = newNote;
+    
+    [self.store saveContext];
+    
+    [self performSegueWithIdentifier:@"secretNote" sender: nil];
+
 }
 
 @end

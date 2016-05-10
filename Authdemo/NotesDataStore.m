@@ -93,17 +93,6 @@
 -(void)createTestData{
     
     NotesDataStore *store = [NotesDataStore sharedNotesDataStore];
-   
-    // NotesDispaly
-//    @property (nullable, nonatomic, retain) NSNumber *isLocked;
-//    @property (nullable, nonatomic, retain) NSDate *dateCreated;
-//    @property (nullable, nonatomic, retain) NSString *title;
-//    @property (nullable, nonatomic, retain) Note *actualNote;
-    
-    //Note
-//    @property (nullable, nonatomic, retain) NSString *content;
-//    @property (nullable, nonatomic, retain) NoteDisplay *notedisplay;
-    
     
     NoteDisplay *noteDisplay1 = [NSEntityDescription insertNewObjectForEntityForName: @"NoteDisplay" inManagedObjectContext: store.managedObjectContext];
     noteDisplay1.isLocked = [NSNumber numberWithBool: YES];
@@ -112,7 +101,7 @@
     noteDisplay1.title = @"Randooooonesssssssss";
     
     Note *note1 = [NSEntityDescription insertNewObjectForEntityForName: @"Note" inManagedObjectContext: store.managedObjectContext];
-    note1.content = @"This is soooo random man. I just thought I would let you know";
+//    note1.content = @"This is soooo random man. I just thought I would let you know";
     
     
     noteDisplay1.actualNote = note1;
@@ -125,7 +114,7 @@
     noteDisplay2.title = @"Just a cool note";
     
     Note *note2 = [NSEntityDescription insertNewObjectForEntityForName: @"Note" inManagedObjectContext: store.managedObjectContext];
-    note2.content = @"I thought it would be cool to write stuff in here!!!!!!";
+//    note2.content = @"I thought it would be cool to write stuff in here!!!!!!";
 
     noteDisplay2.actualNote = note2;
     
